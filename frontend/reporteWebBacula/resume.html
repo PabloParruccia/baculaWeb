@@ -150,35 +150,117 @@
 <script>
 $('#myModal').modal('hidden')
 
-  document.getElementById('ejecutar-script-btn').addEventListener('click', function() {
-  fetch('http://127.0.0.1:8000/bconsole', {
-    method: 'POST',
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Respuesta:', data);
-    // Actualizar el contenido del div con la salida del comando
-    document.getElementById('output-container').innerText = data.salida || data.error;
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-});
+document.getElementById('ejecutar-script-btn').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/servidor', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-container').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
 
-document.getElementById('ejecutar-script-btn2').addEventListener('click', function() {
-  fetch('http://127.0.0.1:8000/bconsole2', {
-    method: 'POST',
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Respuesta:', data);
-    // Actualizar el contenido del div con la salida del comando
-    document.getElementById('output-container2').innerText = data.salida || data.error;
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-});
+    document.getElementById('ejecutar-script-btn2').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/mensajes', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-container2').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+    document.getElementById('ejecutar-script-Laura').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/laura', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-Laura').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+    document.getElementById('ejecutar-script-Romina').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/romina', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-Romina').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+    document.getElementById('ejecutar-script-Gabriela').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/gabriela', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-Gabriela').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+    document.getElementById('ejecutar-script-Carolina').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/carolina', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-Carolina').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+    document.getElementById('ejecutar-script-Javier').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/javier', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-Javier').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+
+    document.getElementById('ejecutar-script-Laboratorio').addEventListener('click', function() {
+      fetch('http://127.0.0.1:8000/bconsole/laboratorio', {
+        method: 'POST',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta:', data);
+        document.getElementById('output-Laboratorio').innerText = data.salida || data.error;
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    });
 </script>
 </body>
 </html>
