@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TWVM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="font/css/fontello.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen">
+<link rel="icon" type="image/png" href="img/tw1.png">
+<style>
+  /* Custom CSS */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #39D084;
+    color: white;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  /* CSS para centrar y alinear los filtros */
+  .filter-bar {
+    margin-top: 20px;
+    text-align: center; /* Centrar los elementos */
+  }
+
+  .filter-bar form {
+    display: inline-block; /* Mostrar los filtros en línea */
+  }
+
+  .filter-bar label,
+  .filter-bar select,
+  .filter-bar input[type="date"],
+  .filter-bar input[type="submit"] {
+    display: inline-block; /* Mostrar elementos en línea */
+    vertical-align: middle; /* Alinear verticalmente al centro */
+    margin-right: 10px; /* Espacio entre los elementos */
+    padding: 5px;
+    width: 100px; /* Ajusta el ancho según sea necesario */
+  }
+
+  .filter-bar label {
+    margin-right: -10px; /* Ajuste adicional para el margen derecho de las etiquetas */
+  }
+
+  /* Estilos para el botón enviar */
+  input[type="submit"] {
+    background-color: #39D084;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #11d170;
+  }
+
+  /* Estilos para el contenedor de la tabla */
+  #tabla-container {
+    margin-top: 20px;
+  }
+  .filter-bar {
+      margin-top: 20px;
+      text-align: center; /* Centrar los elementos */
+    }
+
+    .filter-bar form {
+      display: inline-block; /* Mostrar los filtros en línea */
+    }
+
+    .filter-bar label,
+    .filter-bar input[type="text"],
+    .filter-bar input[type="submit"] {
+      display: inline-block; /* Mostrar elementos en línea */
+      vertical-align: middle; /* Alinear verticalmente al centro */
+      margin-right: 10px; /* Espacio entre los elementos */
+      padding: 5px;
+      width: auto; /* Ancho automático según el contenido */
+    }
+
+    input[type="submit"] {
+      background-color: #39D084;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #11d170;
+    }
+</style>
+    
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="index.html">
+        
+        <img src="img/tw1.png" alt=""></a>
+        <ul class="nav nav-collapse pull-right">
+          <li><a href="index.html"><i class="icon-bar"></i> Principal</a></li>
+          <li><a href="skills.html" class="icon-bar"> Informacion</a></li>
+          <li><a href="work.html"><i class="icon-bar"></i> Reportes</a></li>
+          <li><a href="resume.html"><i class="icon-bar"></i> Backups</a></li>
+        </ul>
+        <div class="nav-collapse collapse"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container work">
+    <h2>REPORTES</h2>
+
+
+    
+    <div class="filter-bar">
+      <form id="filtro-form">
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente">
+        <label for="finished">Fecha:</label>
+        <input type="text" id="finished" name="finished">
+        <input type="submit" value="Filtrar">
+      </form>
+      <form action="http://127.0.0.1:8000/importar_datos" method="post">
+        <button type="submit">Actualizar</button>
+    </form>
+    </div>
+    <!-- Agrega una tabla para mostrar los reportes -->
+    <table id="tabla-container">
+      <thead>
+        <tr>
+          <th>JobId</th>
+          <th>Level</th>
+          <th>Files</th>
+          <th>Bytes</th>
+          <th>Status</th>
+          <th>Finished</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody id="reportes-body">
+        <!-- Aquí se mostrarán los reportes -->
+      </tbody>
+    </table>
+    
+  </div>
+
+<div class="footer">
+  <div class="container">
+
+    <p class="pull-left"><a href="https://www.linkedin.com/in/pablo-emiliano-parruccia-a67893281/" role="button" target="_blank">
+      <img src="img/linkedin.png" width="50" height="50">
+   </a> Linkedin</p>
+   
+
+    <p class="pull-right">    <a href="https://api.whatsapp.com/send?phone=543536578668" role="button" target="_blank">
+      <img src="img/whatsapp.png" width="50" height="50">
+   </a> Whatsapp</p>
+   
+   
+  </div>
+</div>
+
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+$('#myModal').modal('hidden')
+</script>
+<script src="js/jquery.fancybox.js?v=2.1.5"></script>
+<script>
+$(document).ready(function () {
+    $(".fancybox-thumb").fancybox({
+        helpers: {
+            title: {
+                type: 'inside'
+            },
+            overlay: {
+                css: {
+                    'background': 'rgba(1,1,1,0.65)'
+                }
+            }
+        }
+    });
+});
+
+function mostrarReportes() {
+      $.get("http://127.0.0.1:8000/reporte", function(data) {
+        // Vaciar el cuerpo de la tabla
+        $("#reportes-body").empty();
+        // Iterar sobre los datos recibidos y agregar filas a la tabla
+        data.forEach(function(report) {
+          var row = "<tr>";
+          report.forEach(function(cell) {
+            row += "<td>" + cell + "</td>";
+          });
+          row += "</tr>";
+          $("#reportes-body").append(row);
+        });
+      });
+    }
+
+    
+
+    // Función para filtrar los reportes por cliente Name y Finished
+    function filtrarReportes(cliente, finished) {
+        // Obtener todos los reportes
+        var reportes = $("#reportes-body").find("tr");
+        // Iterar sobre los reportes y mostrar u ocultar según los filtros aplicados
+        reportes.each(function() {
+          var nombreCliente = $(this).find("td:nth-child(7)").text(); // El índice 7 corresponde a la columna del nombre del cliente
+          var finishedReport = $(this).find("td:nth-child(6)").text(); // El índice 6 corresponde a la columna del estado de finalización
+          var mostrar = true; // Por defecto, mostrar el reporte
+          if (cliente !== "") {
+            mostrar = mostrar && nombreCliente.toLowerCase().includes(cliente.toLowerCase());
+          }
+          if (finished !== "") {
+            mostrar = mostrar && finishedReport.toLowerCase().includes(finished.toLowerCase());
+          }
+          if (mostrar) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+      }
+
+      // Función de escucha para el envío del formulario de filtrado
+      $("#filtro-form").submit(function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe
+        var cliente = $("#cliente").val(); // Obtener el valor del campo de cliente
+        var finished = $("#finished").val(); // Obtener el valor del campo de Finished
+        filtrarReportes(cliente, finished); // Filtrar los reportes por cliente y Finished
+      });
+
+      // Mostrar los reportes al cargar la página
+      mostrarReportes();
+    
+</script>
+</body>
+</html>
