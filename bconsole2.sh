@@ -1,1 +1,0 @@
-echo bacula tiene 2 errores en bacula-dir
