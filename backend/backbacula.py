@@ -141,11 +141,11 @@ async def get_people(finished: str):
 #comandos para ejecutar backup y mensagges#
 ###########################################
 
-@app.post("/bconsole/servidor")
+@app.post("/bconsole")
 async def ejecutar_script_bconsole():
     try:
         # Ruta al script .sh
-        ruta_script = "/cds/backend/servidor.sh"
+        ruta_script = "/media/parrucciape/fb97eb58-e727-4ca4-8cb4-44340e5f25bf/proyectoBacula/cds/bconsole.sh"
         # Ejecutar el script
         proceso = subprocess.run(["sh", ruta_script], capture_output=True)
         # Verificar el resultado y retornar la salida o un mensaje de error
@@ -156,99 +156,11 @@ async def ejecutar_script_bconsole():
     except Exception as e:
         return {"error": str(e)}
     
-@app.post("/bconsole/carolina")
+@app.post("/bconsole2")
 async def ejecutar_script_bconsole():
     try:
         # Ruta al script .sh
-        ruta_script = "/cds/backend/carolina.sh"
-        # Ejecutar el script
-        proceso = subprocess.run(["sh", ruta_script], capture_output=True)
-        # Verificar el resultado y retornar la salida o un mensaje de error
-        if proceso.returncode == 0:
-            return {"salida": proceso.stdout.decode("utf-8")}
-        else:
-            return {"error": proceso.stderr.decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-    
-@app.post("/bconsole/gabriela")
-async def ejecutar_script_bconsole():
-    try:
-        # Ruta al script .sh
-        ruta_script = "/cds/backend/gabriela.sh"
-        # Ejecutar el script
-        proceso = subprocess.run(["sh", ruta_script], capture_output=True)
-        # Verificar el resultado y retornar la salida o un mensaje de error
-        if proceso.returncode == 0:
-            return {"salida": proceso.stdout.decode("utf-8")}
-        else:
-            return {"error": proceso.stderr.decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-    
-@app.post("/bconsole/javier")
-async def ejecutar_script_bconsole():
-    try:
-        # Ruta al script .sh
-        ruta_script = "/cds/backend/javier.sh"
-        # Ejecutar el script
-        proceso = subprocess.run(["sh", ruta_script], capture_output=True)
-        # Verificar el resultado y retornar la salida o un mensaje de error
-        if proceso.returncode == 0:
-            return {"salida": proceso.stdout.decode("utf-8")}
-        else:
-            return {"error": proceso.stderr.decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-@app.post("/bconsole/laboratorio")
-async def ejecutar_script_bconsole():
-    try:
-        # Ruta al script .sh
-        ruta_script = "/cds/backend/laboratorio.sh"
-        # Ejecutar el script
-        proceso = subprocess.run(["sh", ruta_script], capture_output=True)
-        # Verificar el resultado y retornar la salida o un mensaje de error
-        if proceso.returncode == 0:
-            return {"salida": proceso.stdout.decode("utf-8")}
-        else:
-            return {"error": proceso.stderr.decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-    
-@app.post("/bconsole/laura")
-async def ejecutar_script_bconsole():
-    try:
-        # Ruta al script .sh
-        ruta_script = "/cds/backend/laura.sh"
-        # Ejecutar el script
-        proceso = subprocess.run(["sh", ruta_script], capture_output=True)
-        # Verificar el resultado y retornar la salida o un mensaje de error
-        if proceso.returncode == 0:
-            return {"salida": proceso.stdout.decode("utf-8")}
-        else:
-            return {"error": proceso.stderr.decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-@app.post("/bconsole/romina")
-async def ejecutar_script_bconsole():
-    try:
-        # Ruta al script .sh
-        ruta_script = "/cds/backend/romina.sh"
-        # Ejecutar el script
-        proceso = subprocess.run(["sh", ruta_script], capture_output=True)
-        # Verificar el resultado y retornar la salida o un mensaje de error
-        if proceso.returncode == 0:
-            return {"salida": proceso.stdout.decode("utf-8")}
-        else:
-            return {"error": proceso.stderr.decode("utf-8")}
-    except Exception as e:
-        return {"error": str(e)}
-    
-@app.post("/bconsole/mensajes")
-async def ejecutar_script_bconsole():
-    try:
-        # Ruta al script .sh
-        ruta_script = "/cds/backend/mensajes.sh"
+        ruta_script = "/media/parrucciape/fb97eb58-e727-4ca4-8cb4-44340e5f25bf/proyectoBacula/cds/bconsole2.sh"
         # Ejecutar el script
         proceso = subprocess.run(["sh", ruta_script], capture_output=True)
         # Verificar el resultado y retornar la salida o un mensaje de error

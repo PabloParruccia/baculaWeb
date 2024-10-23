@@ -1,2 +1,5 @@
 bconsole
-messages
+run
+8
+yes
+exit
